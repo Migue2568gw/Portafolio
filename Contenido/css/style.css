@@ -10,7 +10,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background:linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../img/background.jpg") top right no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../img/background.jpg") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -361,10 +361,16 @@ section .container {
   margin-bottom: 0;
 }
 
-.img_about{
+.img_about {
   border-radius: 5px;
 }
 
+.contentBio {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 /* --------------------PORTAFOLIO--------------- */
 
@@ -592,4 +598,82 @@ portfolio .portfolio-item {
 
 .portfolio-details .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #7c7c7c;
+}
+
+/* ------------------------------------------------------
+CONTACTO
+------------------------------------------------------ */
+
+.contact .contentEmail {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact .contentEmail input,
+.contact .contentEmail textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.contact .contentEmail input:focus,
+.contact .contentEmail textarea:focus {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.contact .contentEmail input::-moz-placeholder,
+.contact .contentEmail textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+.contact .contentEmail input::placeholder,
+.contact .contentEmail textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+.contact .contentEmail input {
+  padding: 10px 15px;
+}
+
+.contact .contentEmail textarea {
+  padding: 12px 15px;
+}
+
+.contact .contentEmail button[type=submit] {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .contentEmail button[type=submit]:hover {
+  background: #15bb62;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
