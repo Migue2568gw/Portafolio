@@ -646,7 +646,7 @@ CONTACTO
 }
 
 .contact .contentEmail button[type=submit] {
-  background: #18d26e;
+  background: #424d5b;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -655,7 +655,7 @@ CONTACTO
 }
 
 .contact .contentEmail button[type=submit]:hover {
-  background: #15bb62;
+  background: #424d5b;
 }
 
 @-webkit-keyframes animate-loading {

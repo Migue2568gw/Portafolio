@@ -1,24 +1,51 @@
-const form = document.getElementById('ContactoForm');
-
-form.addEventListener('submit', (event) => {
+$('#ContactoForm').on('submit', function (event) {
     event.preventDefault();
-    const email = document.getElementById('email');
-    const nombre = document.getElementById('nombre');
-    const asunto = document.getElementById('asunto');
-    const mensaje = document.getElementById('mensaje');
 
-    enviarCorreo(email.value, asunto.value, nombre.value, mensaje.value);
+    const formData = $(this).serializeArray().reduce(function (formData, item) {
+        formData[item.name] = item.value;
+        return formData;
+    }, {});
+
+    enviarCorreo(formData.email, formData.asunto, formData.nombre, formData.mensaje, formData.telefono);
 });
 
-function enviarCorreo(email, asunto ,nombre, mensaje) {
+function enviarCorreo(email, asunto, nombre, mensaje, telefono) {
     asunto = asunto + " por " + nombre;
     Email.send({
-        SecureToken : "6cfb7cb6-2771-422e-9340-45cb6bb3f5c5",
-        To : 'nakamura206-n19@hotmail.com',
-        From : "you@isp.com",
-        Subject : "This is the subject",
-        Body : "And this is the body"
+        SecureToken: "4b0d49b7-c8fd-403e-a315-ea846bb782da",
+        To: "nakamura206-n19@hotmail.com",
+        From: "jpmateusnaka@gmail.com",
+        Subject: asunto,
+        Body: mensaje
     }).then(
-      message => alert(message)
+        message => {
+            if (message === 'OK') {
+                var mensaje = 'Correo enviado exitosamente una vez se tenga una respuesta será contactado al siguiente número ' + telefono + ' o al correo electrónico ' + email
+                Swal.fire({
+                    text: mensaje,
+                    icon: 'success',
+                    confirmButtonColor: '#424d5b',
+                    confirmButtonText: 'Aceptar',
+                    iconSize: '60px'
+                });
+                cleanCamps();
+            } else {
+                Swal.fire({
+                    text: 'Error al enviar correo por favor inténtalo de nuevo más tarde',
+                    icon: 'error',
+                    confirmButtonColor: '#424d5b',
+                    confirmButtonText: 'Aceptar',
+                    iconSize: '60px'
+                });
+            }
+        }
     );
+}
+
+function cleanCamps() {
+    $('#email').val('');
+    $('#nombre').val('');
+    $('#asunto').val('');
+    $('#mensaje').val('');
+    $('#telefono').val('');
 }

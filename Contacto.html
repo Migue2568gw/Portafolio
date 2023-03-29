@@ -17,6 +17,8 @@
   <link href="Contenido/css/style.css" rel="stylesheet">
    <!--JS-->
   <script src="Contenido/js/smtp.js"></script>
+  <script src="Contenido/js/jsdelivr.js"></script>
+  <script src="Contenido/js/jquiery.min.js"></script>
 
 </head>
 
@@ -51,20 +53,25 @@
         <h2>Contacto</h2>
       </div>
       <div class="row mt-2">
-        <form class="contentEmail mt-4" id="ContactoForm">
+        <form class="contentEmail mt-4" id="ContactoForm"  method="post">
           <div class="row">
             <div class="col-md-6 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico" required>         
+              <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico" autocomplete="off" required>         
             </div>
             <div class="col-md-6 form-group mt-3 mt-md-0">
-              <input type="text" name="name" class="form-control" id="nombre" placeholder="Nombre" required maxlength="100">
+              <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto" autocomplete="off" required>  
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6 form-group">
+              <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" maxlength="100" autocomplete="off" required>                   
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="number" name="telefono" class="form-control" id="telefono" placeholder="Numeró de telefono" autocomplete="off" required>
             </div>
           </div>
           <div class="form-group mt-3">
-            <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto" required maxlength="50">
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+            <textarea class="form-control" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" autocomplete="off" required></textarea>
           </div>
           <div class="text-center mt-3">
             <button type="submit">Enviar Correo</button>
